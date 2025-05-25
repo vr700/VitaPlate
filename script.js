@@ -1,11 +1,15 @@
 let comidasDB = [];
 let ingredientesExcluidos = [];
-const preferencias = {
-  Lunes: 'cualquiera',
-  Martes: 'cualquiera',
-  Miércoles: 'cualquiera',
-  Jueves: 'cualquiera',
-  Viernes: 'cualquiera'
+const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+const preferencias = Object.fromEntries(dias.map(d => [d, 'cualquiera']));
+
+
+// 🧩 Mapeo de preferencias a ingredientes
+const preferenciasMapeadas = {
+  pescado: ['atun', 'salmon', 'bonito', 'barracuda', 'caballa', 'merluza', 'bacalao'],
+  pollo: ['pollo', 'pechuga de pollo', 'pierna de pollo', 'pollo a la brasa'],
+  carne: ['bisteck', 'carne', 'chancho', 'cerdo', 'res', 'cordero'],
+  carbohidrato: ['fideos', 'arroz', 'pasta', 'papas', 'quinoa', 'pan']
 };
 
 fetch('comidas.json')
@@ -37,10 +41,16 @@ function generarMenu() {
   });
 
   for (let dia of dias) {
+    const tipoPreferido = preferencias[dia];
     let opciones = comidasDisponibles.filter(c => {
-      const tipoPreferido = preferencias[dia];
-      const coincideTipo = tipoPreferido === 'cualquiera' || normalizarTexto(c.tipo) === tipoPreferido;
-      return coincideTipo && c.proteina !== ultimaProteina && (!carbohidratosUsados || c.tipo !== 'carbohidrato');
+      const ingredientesNormalizados = c.ingredientes.map(normalizarTexto);
+      const coincideTipo =
+        tipoPreferido === 'cualquiera' ||
+        (preferenciasMapeadas[tipoPreferido] &&
+          preferenciasMapeadas[tipoPreferido].some(prefIng =>
+            ingredientesNormalizados.includes(normalizarTexto(prefIng))
+          ));
+      return coincideTipo && c.proteina !== ultimaProteina && (!carbohidratosUsados || tipoPreferido !== 'carbohidrato');
     });
 
     if (opciones.length === 0) {
@@ -50,7 +60,9 @@ function generarMenu() {
 
     const comida = opciones[Math.floor(Math.random() * opciones.length)];
 
-    if (comida.tipo === 'carbohidrato') carbohidratosUsados = true;
+    if (preferenciasMapeadas['carbohidrato'].some(ing => comida.ingredientes.map(normalizarTexto).includes(normalizarTexto(ing)))) {
+      carbohidratosUsados = true;
+    }
 
     const index = comidasDisponibles.indexOf(comida);
     if (index > -1) comidasDisponibles.splice(index, 1);
@@ -128,9 +140,8 @@ function eliminarIngrediente(nombre) {
   renderizarIngredientes();
 }
 
-//Calendario de preferencias
+// Calendario de preferencias
 const calendario = document.getElementById('calendario');
-const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
 
 dias.forEach(dia => {
   const container = document.createElement('div');
