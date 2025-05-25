@@ -1,0 +1,163 @@
+:root {
+  --color-fondo: #f7f4ed;
+  --color-texto: #8A7B4C;
+  --color-principal: #3A1D18;
+  --color-secundario: #E0DAC2;
+  --color-secundario-hover: #c5bea0;
+  --color-card-border: #d1c4b2;
+  --color-card-sombra: rgba(216, 206, 173, 0.541);
+  --color-item-bg: #f1eee1;
+  --color-item-border: #D3CAA8;
+  --color-item-borrar: #D3CAA8;
+  --color-seleccion-borde: #e2dac3;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  background: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-principal);
+  border-bottom: 1px solid var(--color-seleccion-borde);
+  padding-bottom: 0.5rem;
+}
+
+.generator-full {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.generator-full button {
+  width: 100%;
+  max-width: 100%;
+  font-size: 1.2rem;
+}
+
+.ingredient-exclude {
+  margin-bottom: 1.5rem;
+}
+
+.ingredient-exclude input {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-seleccion-borde);
+  margin-top: 0.5rem;
+}
+
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+.ingredient-item {
+  background: var(--color-item-bg);
+  border: 1px solid var(--color-item-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.ingredient-item button {
+  background: none;
+  border: none;
+  color: var(--color-item-borrar);
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-card-border);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px var(--color-card-sombra);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--color-principal);
+  font-size: 1.1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background-color: var(--color-secundario);
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-secundario-hover);
+}
+
+.calendario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.preferencia-dia {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Georgia', serif;
+  width: 180px;
+}
+
+.preferencia-dia select {
+  padding: 6px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--color-seleccion-borde);
+  font-family: inherit;
+}

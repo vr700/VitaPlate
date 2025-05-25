@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaPlate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <h1>VitaPlate</h1>
+
+    <section class="generator-full">
+      <button onclick="generarMenu()">Generar Menú</button>
+    </section>
+
+    <section class="ingredient-exclude">
+      <label for="inputIngrediente">Excluir ingredientes:</label>
+      <input type="text" id="inputIngrediente" placeholder="Ej: pescado, arroz, mantequilla" />
+      <div id="listaIngredientes" class="ingredient-list"></div>
+    </section>
+
+    <div id="menu" class="menu-container"></div>
+
+    <div class="buttons">
+      <button onclick="copiarMenu()">📋 | Copiar Menú</button>
+      <button onclick="enviarWhatsApp()">🟩 | Enviar por WhatsApp</button>
+    </div>
+
+    <h3>Preferencias por Día</h3>
+    <div id="calendario" class="calendario"></div>
+
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

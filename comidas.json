@@ -1,0 +1,46 @@
+{
+  "comidas": [
+    {
+      "nombre": "Pechuga a la Parrilla con Ensalada",
+      "ingredientes": ["pechuga de pollo", "lechuga", "tomate", "aceite de oliva"],
+      "proteina": "pollo",
+      "tipo": "principal"
+    },
+    {
+      "nombre": "Salmón al Horno con Espárragos",
+      "ingredientes": ["salmón", "espárragos", "limón", "mantequilla"],
+      "proteina": "pescado",
+      "tipo": "principal"
+    },
+    {
+      "nombre": "Arroz Chaufa de Pollo",
+      "ingredientes": ["arroz", "pollo", "soya", "huevo"],
+      "proteina": "pollo",
+      "tipo": "carbohidrato"
+    },
+    {
+      "nombre": "Lomo Saltado con Quinoa",
+      "ingredientes": ["carne de res", "quinoa", "cebolla", "tomate"],
+      "proteina": "res",
+      "tipo": "principal"
+    },
+    {
+      "nombre": "Fideos Integrales con Verduras",
+      "ingredientes": ["fideos integrales", "brócoli", "zanahoria", "salsa de soya"],
+      "proteina": "vegetariano",
+      "tipo": "carbohidrato"
+    },
+    {
+      "nombre": "Pollo al Curry con Vegetales",
+      "ingredientes": ["pollo", "zanahoria", "pimiento", "curry"],
+      "proteina": "pollo",
+      "tipo": "principal"
+    },
+    {
+      "nombre": "Cerdo agridulce con arroz",
+      "ingredientes": ["cerdo", "pimiento", "piña", "arroz"],
+      "proteina": "cerdo",
+      "tipo": "principal"
+    }
+  ]
+}
